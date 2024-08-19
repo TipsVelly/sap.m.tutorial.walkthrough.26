@@ -3,11 +3,13 @@ metadata:
   name: ui5.walkthrough
 type: application
 framework:
-  name: OpenUI5
-  version: 1.126.0
+  name: SAPUI5
+  version: "1.127.0"
   libraries:
+    - name: sap.f
     - name: sap.m
     - name: sap.ui.core
+    - name: sap.ui.comp
     - name: themelib_sap_horizon
 server:
   customMiddleware:

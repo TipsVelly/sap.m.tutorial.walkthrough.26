@@ -1,0 +1,88 @@
+<mvc:View controllerName="ui5.walkthrough.controller.Yooeuiseion1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form">
+  <f:DynamicPage toggleHeaderOnTitleClick="false">
+    <f:title>
+      <f:DynamicPageTitle>
+        <f:heading>
+          <Title text="Yooeuiseon ">
+        </Title>
+      </f:heading>
+    </f:DynamicPageTitle>
+  </f:title>
+    <f:header>
+      <f:DynamicPageHeader pinnable="false">
+        <FlexBox direction="Row">
+          <FlexBox direction="Column" class="paddingL3">
+            <form:SimpleForm editable="true" layout="ColumnLayout" columnsM="2 " columnsL="2" columnsXL="3" labelSpanM="3" labelSpanL="3" labelSpanXL="3">
+              <form:content>
+                <Label text="상품명" />
+                <Input value="{test_table_7143_yooeuiseion1_search_model>/ProductName}" />
+                <Label text="수량" />
+                <Input value="{test_table_7143_yooeuiseion1_search_model>/Quantity}" />
+                <Label text="택배사" />
+                <Input value="{test_table_7143_yooeuiseion1_search_model>/ShipperName}" />
+                <Label text="가격" />
+                <Input value="{test_table_7143_yooeuiseion1_search_model>/ExtendedPrice}" />
+                <Label text="상태" />
+                <Input value="{test_table_7143_yooeuiseion1_search_model>/Status}" />
+            </form:content>
+          </form:SimpleForm>
+            <layoutData>
+              <FlexItemData growFactor="5" baseSize="0">
+            </FlexItemData>
+          </layoutData>
+        </FlexBox>
+          <FlexBox justifyContent="Center" alignItems="Center" class="mainBtn" direction="Column">
+            <Button icon="sap-icon://search" type="Emphasized" width="80px" text="검색" press="onSearch">
+          </Button>
+            <layoutData>
+              <FlexItemData growFactor="1" baseSize="0">
+            </FlexItemData>
+          </layoutData>
+        </FlexBox>
+      </FlexBox>
+    </f:DynamicPageHeader>
+  </f:header>
+    <f:content>
+      <Table id="main_table" mode="MultiSelect" itemPress="onListItemPress" items="{invoice>/Invoices}" width="auto" class="sapUiMediumMarginBottom">
+        <headerToolbar>
+          <OverflowToolbar>
+            <ToolbarSpacer>
+          </ToolbarSpacer>
+            <Button icon="sap-icon://add" type="Transparent" press="onAdd" id="btn_add">
+          </Button>
+            <Button icon="sap-icon://delete" type="Transparent" press="onDelete" id="btn_del">
+          </Button>
+        </OverflowToolbar>
+      </headerToolbar>
+        <columns>
+          <Column width="auto" hAlign="Center">
+            <Label text="상품명" />
+          </Column>
+          <Column width="auto" hAlign="Center">
+            <Label text="수량" />
+          </Column>
+          <Column width="auto" hAlign="Center">
+            <Label text="택배사" />
+          </Column>
+          <Column width="auto" hAlign="Center">
+            <Label text="가격" />
+          </Column>
+          <Column width="auto" hAlign="Center">
+            <Label text="상태" />
+          </Column>
+      </columns>
+        <items>
+          <ColumnListItem vAlign="Middle" type="Navigation" >
+            <cells>
+              <Label text="{invoice>ProductName}"/>
+              <Label text="{invoice>Quantity}"/>
+              <Label text="{invoice>ShipperName}"/>
+              <Label text="{invoice>ExtendedPrice}"/>
+              <Label text="{invoice>Status}"/>
+          </cells>
+        </ColumnListItem>
+      </items>
+    </Table>
+  </f:content>
+</f:DynamicPage>
+</mvc:View>
