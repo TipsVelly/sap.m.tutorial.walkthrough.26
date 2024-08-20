@@ -13,8 +13,13 @@ sap.ui.define([
 			// 기본 설정 셋팅
 			this.initDefaultInfo();
 			// 라우터 초기화
-			// var oRouter = this.getOwnerComponent().getRouter();
-			// oRouter.getRoute("yooeuiseion1").attachPatternMatched(this._onRouteMatched, this);
+			var oRouter = this.getOwnerComponent().getRouter();
+			oRouter.getRoute("yooeuiseion1").attachPatternMatched(this._onRouteMatched.bind(this));
+		},
+
+		_onRouteMatched: function(oEvent) {
+			this.search_model.setData({});
+			this.onSearch();
 		},
 		initDefaultInfo: function() {
 			this.sSelectedPath  = null;
