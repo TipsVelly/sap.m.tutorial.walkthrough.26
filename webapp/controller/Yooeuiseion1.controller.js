@@ -14,7 +14,7 @@ sap.ui.define([
 			this.initDefaultInfo();
 			// 라우터 초기화
 			var oRouter = this.getOwnerComponent().getRouter();
-			oRouter.getRoute("yooeuiseion1").attachPatternMatched(this._onRouteMatched.bind(this));
+			oRouter.getRoute("yooeuiseion1").attachPatternMatched(this._onRouteMatched, this);
 		},
 
 		_onRouteMatched: function(oEvent) {
@@ -38,6 +38,7 @@ sap.ui.define([
 
 		// 검색 실행 함수
 		onSearch: function() {
+			// 검색 실행 함수
 			const oModel = this.odata_model; // ODataModel 가져오기
 			const oSearchModelData = this.search_model.getData(); // 검색 모델 데이터 가져오기
 
@@ -56,6 +57,7 @@ sap.ui.define([
 
 		// 엔터티셋의 메타데이터에서 엔터티 타입을 가져오는 함수
 		getEntityType: function(oModel, sEntitySet) {
+			// 엔터티셋의 메타데이터에서 엔터티 타입을 가져오는 함수
 			const oMetadata = oModel.getServiceMetadata(); // 서비스 메타데이터 가져오기
 
 			// 메타데이터에서 엔터티셋을 찾고, 그에 따른 엔터티 타입을 반환
@@ -74,6 +76,7 @@ sap.ui.define([
 
 		// 엔터티 타입에서 특정 필드의 데이터 타입을 가져오는 함수
 		getProperty: function(oEntityType, sKey) {
+			// 엔터티 타입에서 특정 필드의 데이터 타입을 가져오는 함수
 			let result = null;
 			if(oEntityType) {
 				// 엔터티 타입 내에서 필드 이름과 일치하는 속성의 타입을 찾음
@@ -89,8 +92,8 @@ sap.ui.define([
 
 		// 검색 모델 데이터를 기반으로 필터를 생성하는 함수
 		createFilters: function(oSearchModelData, oEntityType) {
+			// 검색 모델 데이터를 기반으로 필터를 생성하는 함수
 			const aFilters = [];
-
 			// 검색 모델 데이터의 각 키에 대한 필터 생성
 			Object.entries(oSearchModelData).forEach(([key, value]) => {
 				const oProperty = this.getProperty(oEntityType, key); // 필드 타입 가져오기
@@ -110,7 +113,6 @@ sap.ui.define([
 					}
 				}
 			});
-
 			return aFilters; // 생성된 필터 배열을 반환
 		},
 
@@ -118,13 +120,13 @@ sap.ui.define([
 			// 추가 버튼 실행 함수
 			// 다이로그 열기
 			this.isUpdated=false;
-			this.onOpenInputDialog({
+			await this.onOpenInputDialog({
 				isUpdate: this.isUpdated,
 				rowData: null
 			});
 		},
 
-		onListItemPress: function(oEvent) {
+		onListItemPress: async function(oEvent) {
 			this.isUpdated = true;
 			const oListItem = oEvent.getParameter("listItem");	// 클릭된 아이템
 			const oBindingContext = oListItem.getBindingContext(this.odata_model_name);
@@ -135,7 +137,7 @@ sap.ui.define([
 
 
 			// 다이얼로그 열기
-			this.onOpenInputDialog({
+			await this.onOpenInputDialog({
 				isUpdate: this.isUpdated,
 				rowData: oSelectedData	// 선택된 데이터 객체
 			});
@@ -143,6 +145,7 @@ sap.ui.define([
 
 		 // 다이얼로그 함수
 		 onOpenInputDialog: async function(settings) {
+			// 다이얼로그 함수
 			this.oDialog ??= await this.loadFragment({
 				name:"ui5.walkthrough.view.fragments.DialogTemplate01"
 			});
@@ -183,8 +186,9 @@ sap.ui.define([
 			this.oDialog.open();
 		},
 
-		// 다이얼로그의 입력 필드를 테이블 컬럼 기반으로 생성
+		// 다이얼로그의 입력 필드를 테이블 컬럼 기반으로 생성 함수
 		_createDialogInputs: function(isUpdate) {
+			// 다이얼로그의 입력 필드를 테이블 컬럼 기반으로 생성 함수
 			const oTable = this.oTable; // 테이블 컴포넌트
 			const oColumns = oTable.getColumns();	// 테이블의 컬럼 배열
 			const oForm = this.byId('dialogForm');	// 다이얼로그 내의 SimpleForm
@@ -204,6 +208,7 @@ sap.ui.define([
 		},
 
 		onSubmitDialogButton: function() {
+			// submit 버튼 실행 함수
 			if(this.isUpdated) {
 				this.onUpdate();
 			} else {
@@ -217,6 +222,7 @@ sap.ui.define([
 
 		// 유효성 검사 함수
 		validateInputs: function(modelName) {
+			// 유효성 검사 함수
 			const oModel = this.getView().getModel(modelName);
 			const oData = oModel.getData();
 		
