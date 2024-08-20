@@ -3,16 +3,15 @@
     <f:title>
       <f:DynamicPageTitle>
         <f:heading>
-          <Title text="Yooeuiseon ">
-        </Title>
-      </f:heading>
-    </f:DynamicPageTitle>
-  </f:title>
+          <Title text="Yooeuiseon " />
+        </f:heading>
+      </f:DynamicPageTitle>
+    </f:title>
     <f:header>
       <f:DynamicPageHeader pinnable="false">
         <FlexBox direction="Row">
           <FlexBox direction="Column" class="paddingL3">
-            <form:SimpleForm editable="true" layout="ColumnLayout" columnsM="2 " columnsL="2" columnsXL="3" labelSpanM="3" labelSpanL="3" labelSpanXL="3">
+            <form:SimpleForm editable="true" layout="ColumnLayout" columnsM="2" columnsL="2" columnsXL="3" labelSpanM="3" labelSpanL="3" labelSpanXL="3">
               <form:content>
                 <Label text="상품명" />
                 <Input value="{test_table_7143_yooeuiseion1_search_model>/ProductName}" />
@@ -24,65 +23,74 @@
                 <Input value="{test_table_7143_yooeuiseion1_search_model>/ExtendedPrice}" />
                 <Label text="상태" />
                 <Input value="{test_table_7143_yooeuiseion1_search_model>/Status}" />
-            </form:content>
-          </form:SimpleForm>
+              </form:content>
+            </form:SimpleForm>
             <layoutData>
-              <FlexItemData growFactor="5" baseSize="0">
-            </FlexItemData>
-          </layoutData>
-        </FlexBox>
+              <FlexItemData growFactor="5" baseSize="0" />
+            </layoutData>
+          </FlexBox>
           <FlexBox justifyContent="Center" alignItems="Center" class="mainBtn" direction="Column">
-            <Button icon="sap-icon://search" type="Emphasized" width="80px" text="검색" press="onSearch">
-          </Button>
+            <Button icon="sap-icon://search" type="Emphasized" width="80px" text="검색" press="onSearch" />
             <layoutData>
-              <FlexItemData growFactor="1" baseSize="0">
-            </FlexItemData>
-          </layoutData>
+              <FlexItemData growFactor="1" baseSize="0" />
+            </layoutData>
+          </FlexBox>
         </FlexBox>
-      </FlexBox>
-    </f:DynamicPageHeader>
-  </f:header>
+      </f:DynamicPageHeader>
+    </f:header>
     <f:content>
       <Table id="main_table" mode="MultiSelect" itemPress="onListItemPress" items="{invoice>/Invoices}" width="auto" class="sapUiMediumMarginBottom">
         <headerToolbar>
           <OverflowToolbar>
-            <ToolbarSpacer>
-          </ToolbarSpacer>
-            <Button icon="sap-icon://add" type="Transparent" press="onAdd" id="btn_add">
-          </Button>
-            <Button icon="sap-icon://delete" type="Transparent" press="onDelete" id="btn_del">
-          </Button>
-        </OverflowToolbar>
-      </headerToolbar>
+            <ToolbarSpacer />
+            <Button icon="sap-icon://add" type="Transparent" press="onAdd" id="btn_add" />
+            <Button icon="sap-icon://delete" type="Transparent" press="onDelete" id="btn_del" />
+          </OverflowToolbar>
+        </headerToolbar>
         <columns>
           <Column width="auto" hAlign="Center">
             <Label text="상품명" />
+            <customData>
+              <core:CustomData key="property" value="ProductName" />
+            </customData>
           </Column>
           <Column width="auto" hAlign="Center">
             <Label text="수량" />
+            <customData>
+              <core:CustomData key="property" value="Quantity" />
+            </customData>
           </Column>
           <Column width="auto" hAlign="Center">
             <Label text="택배사" />
+            <customData>
+              <core:CustomData key="property" value="ShipperName" />
+            </customData>
           </Column>
           <Column width="auto" hAlign="Center">
             <Label text="가격" />
+            <customData>
+              <core:CustomData key="property" value="ExtendedPrice" />
+            </customData>
           </Column>
           <Column width="auto" hAlign="Center">
             <Label text="상태" />
+            <customData>
+              <core:CustomData key="property" value="Status" />
+            </customData>
           </Column>
-      </columns>
+        </columns>
         <items>
-          <ColumnListItem vAlign="Middle" type="Navigation" >
+          <ColumnListItem vAlign="Middle" type="Navigation">
             <cells>
-              <Label text="{invoice>ProductName}"/>
-              <Label text="{invoice>Quantity}"/>
-              <Label text="{invoice>ShipperName}"/>
-              <Label text="{invoice>ExtendedPrice}"/>
-              <Label text="{invoice>Status}"/>
-          </cells>
-        </ColumnListItem>
-      </items>
-    </Table>
-  </f:content>
-</f:DynamicPage>
+              <Label text="{invoice>ProductName}" />
+              <Label text="{invoice>Quantity}" />
+              <Label text="{invoice>ShipperName}" />
+              <Label text="{invoice>ExtendedPrice}" />
+              <Label text="{invoice>Status}" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </f:content>
+  </f:DynamicPage>
 </mvc:View>

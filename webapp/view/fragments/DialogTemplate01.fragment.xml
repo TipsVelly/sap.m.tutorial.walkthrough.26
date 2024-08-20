@@ -4,11 +4,11 @@
 	xmlns:f="sap.ui.layout.form">
 	<Dialog title="데이터 추가">
 		<content>
-			<f:SimpleForm>
+			<f:SimpleForm id="dialogForm">
 			</f:SimpleForm>
 		</content>
 		<beginButton>
-			<Button text="Save" type="Accept" press="onSubmitDialogButton" />
+			<Button text="Save" id="idSaveButton" type="Accept" press="onSubmitDialogButton" />
 		</beginButton>
 		<endButton>
 			<Button text="Close" type="Reject" press="onCloseDialogButton" />
