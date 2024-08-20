@@ -22,6 +22,7 @@ sap.ui.define([
 			this.onSearch();
 		},
 		initDefaultInfo: function() {
+			this.isUpdated = false;
 			this.sSelectedPath  = null;
 			this.search_model = this.getOwnerComponent().getModel("test_table_7143_yooeuiseion1_search_model");
 			this.odata_model_name = "invoice";
@@ -68,7 +69,6 @@ sap.ui.define([
 					}
 				}
 			}
-
 			return null; // 엔터티 타입을 찾지 못한 경우
 		},
 
@@ -111,14 +111,21 @@ sap.ui.define([
 				}
 			});
 
-            return aFilters; // 생성된 필터 배열을 반환
+			return aFilters; // 생성된 필터 배열을 반환
 		},
 
 		onAdd: async function() {
-			this.onOpenInputDialog();
+			// 추가 버튼 실행 함수
+			// 다이로그 열기
+			this.isUpdated=false;
+			this.onOpenInputDialog({
+				isUpdate: this.isUpdated,
+				rowData: null
+			});
 		},
 
 		onListItemPress: function(oEvent) {
+			this.isUpdated = true;
 			const oListItem = oEvent.getParameter("listItem");	// 클릭된 아이템
 			const oBindingContext = oListItem.getBindingContext(this.odata_model_name);
 			const oSelectedData  = oBindingContext.getObject();  // 선택된 행의 데이터
@@ -129,7 +136,7 @@ sap.ui.define([
 
 			// 다이얼로그 열기
 			this.onOpenInputDialog({
-				isUpdate: true,
+				isUpdate: this.isUpdated,
 				rowData: oSelectedData	// 선택된 데이터 객체
 			});
 		},
@@ -149,18 +156,20 @@ sap.ui.define([
 
 			// 다이얼로그 입력 필드를 생성하거나 초기화
 			this._createDialogInputs(isUpdate);
-
+			
  			// 다이얼로그의 Submit 버튼을 동적으로 설정
 			 const oSubmitButton = this.byId("idSaveButton");
-			 oSubmitButton.detachPress(); // 이전에 설정된 이벤트 핸들러를 제거
-			 
-			 if(isUpdate) {
+
+ 			// 기존의 모든 press 이벤트 제거
+			oSubmitButton.detachPress();
+
+			 if(isUpdate) {	 
 				// update_model에 선택된 데이터를 설정
 				this.update_model.setData(rowData);
 
 				// Submit 버튼의 동작 설정 (업데이트)
 				oSubmitButton.setText("Update");
-				oSubmitButton.attachPress(this.onUpdate.bind(this))
+				
 
 			 } else {
 				// 등록모드: add_model 초기화
@@ -168,7 +177,7 @@ sap.ui.define([
 
 				// Submit 버튼의 동작 설정 (등록)
 				oSubmitButton.setText("Register");
-				oSubmitButton.attachPress(this.onRegister.bind(this));
+				
 			 }
 			
 			this.oDialog.open();
@@ -192,6 +201,14 @@ sap.ui.define([
 					value: `{${isUpdate ? 'update_model' : 'add_model'}>/${sProperty}}`
 				}));
 			});
+		},
+
+		onSubmitDialogButton: function() {
+			if(this.isUpdated) {
+				this.onUpdate();
+			} else {
+				this.onRegister();
+			}
 		},
 
 		onCloseDialogButton: function() {
