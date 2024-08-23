@@ -1,0 +1,91 @@
+<mvc:View controllerName="ui5.walkthrough.controller.Test53" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form">
+	<f:DynamicPage toggleHeaderOnTitleClick="false">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="테스트53 ">
+					</Title>
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader pinnable="false">
+				<FlexBox direction="Row">
+					<FlexBox direction="Column" class="paddingL3">
+						<form:SimpleForm editable="true" layout="ColumnLayout" columnsM="2 " columnsL="2" columnsXL="3" labelSpanM="3" labelSpanL="3" labelSpanXL="3">
+							<form:content>
+								<Label text="이름" />
+								<Input type="Text" value="{Northwind_4389_Test53_search_model>/}" />
+								<Label text="아이디" />
+								<Input type="Number" value="{Northwind_4389_Test53_search_model>/}" />
+								<Label text="공급자 아이디" />
+								<Input type="Number" value="{Northwind_4389_Test53_search_model>/}" />
+
+							</form:content>
+						</form:SimpleForm>
+						<layoutData>
+							<FlexItemData growFactor="5" baseSize="0">
+							</FlexItemData>
+						</layoutData>
+					</FlexBox>
+					<FlexBox justifyContent="Center" alignItems="Center" class="mainBtn" direction="Column">
+						<Button icon="sap-icon://search" type="Emphasized" width="80px" text="검색" press="onSearch">
+						</Button>
+						<layoutData>
+							<FlexItemData growFactor="1" baseSize="0">
+							</FlexItemData>
+						</layoutData>
+					</FlexBox>
+				</FlexBox>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<Table id="main_table" mode="MultiSelect" itemPress="onListItemPress" items="{Northwind_4389_Test53_model>/Products}" width="auto" class="sapUiMediumMarginBottom">
+				<headerToolbar>
+					<OverflowToolbar>
+						<ToolbarSpacer>
+						</ToolbarSpacer>
+						<Button icon="sap-icon://add" type="Transparent" press="onAdd" id="btn_add">
+						</Button>
+						<Button icon="sap-icon://delete" type="Transparent" press="onDelete" id="btn_del">
+						</Button>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="auto" hAlign="Center">
+						<Label text="이름">
+							<customData>
+								<core:CustomData key="property" value="ProductName" />
+							</customData>
+						</Label>
+					</Column>
+					<Column width="auto" hAlign="Center">
+						<Label text="아이디">
+							<customData>
+								<core:CustomData key="property" value="ProductID" />
+							</customData>
+						</Label>
+					</Column>
+					<Column width="auto" hAlign="Center">
+						<Label text="공급자 아이디">
+							<customData>
+								<core:CustomData key="property" value="SupplierID" />
+							</customData>
+						</Label>
+					</Column>
+
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle" type="Navigation" >
+						<cells>
+							<Label text="{Northwind_4389_Test53_model>ProductName}" />
+							<Label text="{Northwind_4389_Test53_model>ProductID}" />
+							<Label text="{Northwind_4389_Test53_model>SupplierID}" />
+
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

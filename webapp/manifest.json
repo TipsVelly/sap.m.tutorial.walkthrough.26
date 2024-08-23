@@ -22,6 +22,97 @@
                 "settings": {
                     "odataVersion": "2.0"
                 }
+            },
+            "_5452_datasource": {
+                "uri": "http://services.odata.org/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "Northwind_9169_datasource": {
+                "uri": "http://services.odata.org/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "Northwind_3997_datasource": {
+                "uri": "http://services.odata.org/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "Northwind_6746_datasource": {
+                "uri": "http://services.odata.org/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "Northwind_9456_datasource": {
+                "uri": "http://services.odata.org/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "Northwind_3959_datasource": {
+                "uri": "http://services.odata.org/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "Northwind_3385_datasource": {
+                "uri": "http://services.odata.org/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "Northwind_3736_datasource": {
+                "uri": "http://services.odata.org/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "Northwind_3815_datasource": {
+                "uri": "http://services.odata.org/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "Northwind_4829_datasource": {
+                "uri": "http://services.odata.org/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "Northwind_6580_datasource": {
+                "uri": "http://services.odata.org/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "Northwind_7091_datasource": {
+                "uri": "http://services.odata.org/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            },
+            "Northwind_4389_datasource": {
+                "uri": "http://services.odata.org/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
             }
         }
     },
@@ -39,10 +130,10 @@
             "libs": {
                 "sap.m": {},
                 "sap.ui.core": {},
-				"sap.ui.comp": {}
+                "sap.ui.comp": {}
             }
         },
-		"contentDensities": {
+        "contentDensities": {
             "compact": true,
             "cozy": true
         },
@@ -62,11 +153,45 @@
             },
             "test_table_7143_yooeuiseion1_model": {
                 "type": "sap.ui.model.json.JSONModel",
-                
-				"preload": false
+                "preload": false
             },
             "test_table_7143_yooeuiseion1_search_model": {
                 "type": "sap.ui.model.json.JSONModel"
+            },
+            "Northwind_3815_HyperTestView_model": {
+                "dataSource": "Northwind_3815_datasource"
+            },
+            "Northwind_3815_HyperTestView_search_model": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {}
+            },
+            "Northwind_4829_SuperView_model": {
+                "dataSource": "Northwind_4829_datasource"
+            },
+            "Northwind_4829_SuperView_search_model": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {}
+            },
+            "Northwind_6580_Tempalate2_model": {
+                "dataSource": "Northwind_6580_datasource"
+            },
+            "Northwind_6580_Tempalate2_search_model": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {}
+            },
+            "Northwind_7091_SuperGundam_model": {
+                "dataSource": "Northwind_7091_datasource"
+            },
+            "Northwind_7091_SuperGundam_search_model": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {}
+            },
+            "Northwind_4389_Test53_model": {
+                "dataSource": "Northwind_4389_datasource"
+            },
+            "Northwind_4389_Test53_search_model": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {}
             }
         },
         "rootView": {
@@ -98,6 +223,97 @@
                     "target": [
                         "yooeuiseion1"
                     ]
+                },
+                {
+                    "name": "tes",
+                    "pattern": "test",
+                    "target": [
+                        "tes"
+                    ]
+                },
+                {
+                    "name": "testView",
+                    "pattern": "TestView",
+                    "target": [
+                        "testView"
+                    ]
+                },
+                {
+                    "name": "testVIew",
+                    "pattern": "TestVIew",
+                    "target": [
+                        "testVIew"
+                    ]
+                },
+                {
+                    "name": "product2TestVIew",
+                    "pattern": "Product2TestVIew",
+                    "target": [
+                        "product2TestVIew"
+                    ]
+                },
+                {
+                    "name": "proTestView",
+                    "pattern": "proTestView",
+                    "target": [
+                        "proTestView"
+                    ]
+                },
+                {
+                    "name": "testView22",
+                    "pattern": "testView22",
+                    "target": [
+                        "testView22"
+                    ]
+                },
+                {
+                    "name": "gundamView",
+                    "pattern": "GundamView",
+                    "target": [
+                        "gundamView"
+                    ]
+                },
+                {
+                    "name": "yooView",
+                    "pattern": "yooView",
+                    "target": [
+                        "yooView"
+                    ]
+                },
+                {
+                    "name": "hyperTestView",
+                    "pattern": "hyperTest",
+                    "target": [
+                        "hyperTestView"
+                    ]
+                },
+                {
+                    "name": "superView",
+                    "pattern": "superView",
+                    "target": [
+                        "superView"
+                    ]
+                },
+                {
+                    "name": "tempalate2",
+                    "pattern": "Tempalate2",
+                    "target": [
+                        "tempalate2"
+                    ]
+                },
+                {
+                    "name": "superGundam",
+                    "pattern": "superGundam",
+                    "target": [
+                        "superGundam"
+                    ]
+                },
+                {
+                    "name": "test53",
+                    "pattern": "test53",
+                    "target": [
+                        "test53"
+                    ]
                 }
             ],
             "targets": {
@@ -107,6 +323,90 @@
                     "clearControlAggregation": false,
                     "viewId": "yooeuiseion1",
                     "viewName": "Yooeuiseion1"
+                },
+                "testView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "testView",
+                    "viewName": "TestView"
+                },
+                "testVIew": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "testVIew",
+                    "viewName": "TestVIew"
+                },
+                "product2TestVIew": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "product2TestVIew",
+                    "viewName": "Product2TestVIew"
+                },
+                "proTestView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "proTestView",
+                    "viewName": "ProTestView"
+                },
+                "testView22": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "testView22",
+                    "viewName": "TestView22"
+                },
+                "gundamView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "gundamView",
+                    "viewName": "GundamView"
+                },
+                "yooView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "yooView",
+                    "viewName": "YooView"
+                },
+                "hyperTestView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "hyperTestView",
+                    "viewName": "HyperTestView"
+                },
+                "superView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "superView",
+                    "viewName": "SuperView"
+                },
+                "tempalate2": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "tempalate2",
+                    "viewName": "Tempalate2"
+                },
+                "superGundam": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "superGundam",
+                    "viewName": "SuperGundam"
+                },
+                "test53": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "test53",
+                    "viewName": "Test53"
                 }
             }
         }

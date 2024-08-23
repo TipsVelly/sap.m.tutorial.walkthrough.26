@@ -255,11 +255,13 @@ sap.ui.define([
 		},
 		// 기존 데이터 비교 후 변화 여부 체크 함수
 		isDataChanged: function(oNewData, oOldData) {
+			// 기존 데이터 비교 후 변화 여부 체크 함수
 			return JSON.stringify(oNewData) !== JSON.stringify(oOldData);
 		},
 
 		// 등록 함수
 		onRegister: function() {
+			// 등록 함수
 			if(!this.validateInputs("add_model")) {
 				return; // 첫 번째 유효성 검사에서 실패하면 등록을 중단
 			}
@@ -279,6 +281,7 @@ sap.ui.define([
 
 		// 수정 함수
 		onUpdate: function() {
+			// 수정 함수
 			const oUpdatedData = this.update_model.getData(); // 수정된 데이터 가져오기
 			const oModel = this.oTable.getModel(this.odata_model_name); // 특정 모델 이름을 사용하여 모델 참조
 			const sPath = this.sSelectedPath; // 선택된 항목의 경로 가져오기
@@ -310,6 +313,7 @@ sap.ui.define([
 		},
 
 		onDelete: function() {
+			// 삭제 함수
 			// 현재 테이블에서 선택된 항목들의 컨텍스트를 가져옵니다.
 			const aSelectedContexts = this.oTable.getSelectedContexts();
 		
@@ -358,6 +362,7 @@ sap.ui.define([
 		},
 		
 		_showDeleteResult: function(iSuccessCount, iErrorCount) {
+			// 삭제 결과 메세지 출력 함수
 			// 모든 삭제 작업이 완료된 후 결과에 따라 메시지를 표시합니다.
 			if (iSuccessCount > 0 && iErrorCount === 0) {
 				// 모든 데이터가 성공적으로 삭제된 경우
@@ -370,6 +375,5 @@ sap.ui.define([
 				MessageBox.error(`${iErrorCount}개의 데이터 삭제에 실패했습니다.`);
 			}
 		}
-		
 	});
 });
